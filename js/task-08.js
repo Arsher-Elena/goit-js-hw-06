@@ -17,7 +17,7 @@ function submitHandler(event) {
   if (email.value === '' || password.value === '') {
     return alert('Please fill in all the fields!');
   } else {
-    profile = profile.email = email.value;
+    profile.email = email.value;
     profile.password = password.value;
 
     event.currentTarget.reset();
