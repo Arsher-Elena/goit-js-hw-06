@@ -5,20 +5,23 @@ const loginForm = document.querySelector('.login-form');
 
 
 loginForm.addEventListener('submit', submitHandler)
+let profile = {};
 
 function submitHandler(event) {
     event.preventDefault();
     
     const email = event.currentTarget.elements.email;
-    const password = event.currentTarget.elements.password;
-
+  const password = event.currentTarget.elements.password;
+  
+  
   if (email.value === '' || password.value === '') {
-    alert('Please fill in all the fields!');
+    return alert('Please fill in all the fields!');
   } else {
-    profile.email = email.value;
+    profile = profile.email = email.value;
     profile.password = password.value;
 
+    event.currentTarget.reset();
     console.log(profile);
   }
-  event.currentTarget.reset();
+  
 }

@@ -13,13 +13,14 @@ const images = [
   },
 ]; 
 
-const gallery = document.querySelector('.gallery');
+const refs = {
+    input: document.querySelector('#font-size-control'),
+    text: document.querySelector('#text'),
+};
+console.dir(refs.input);
 
-const galleryItems = ({ url, alt }) =>
-  `<li><img src="${url}" alt="${alt}" width = 300 height = auto></li>`;
-const galleryMarkup = images.reduce(
-  (acc, item) => acc + galleryItems(item),
-  []
-);
+refs.input.addEventListener('input', onImputSize);
 
-gallery.insertAdjacentHTML('afterbegin', galleryMarkup);
+function onImputSize(event) {
+   refs.text.style.fontSize = event.currentTarget.value + 'px';
+};
